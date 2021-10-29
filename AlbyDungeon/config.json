@@ -1,0 +1,30 @@
+{
+  "max_party": -1,
+  "daily_clear": -1,
+  "world_name": "world",
+  "spawn_position": [
+    -1512,
+    72,
+    -501,
+    -90
+  ],
+  "start_position": [
+    -1506,
+    43,
+    -501,
+    -90
+  ],
+  "block_a": [
+    -1659,
+    94,
+    -461
+  ],
+  "block_b": [
+    -1368,
+    10,
+    -591
+  ],
+  "variables": {},
+  "cleared_players": {},
+  "party": {}
+}
