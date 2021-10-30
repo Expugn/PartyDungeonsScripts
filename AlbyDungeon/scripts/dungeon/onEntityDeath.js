@@ -1,6 +1,6 @@
 /**
  * DUNGEON type script for DUNGEON AlbyDungeon
- * 
+ *
  * onEntityDeath is a script containing instructions
  * on how to deal with entities who die in the dungeon
  * area while it is active.

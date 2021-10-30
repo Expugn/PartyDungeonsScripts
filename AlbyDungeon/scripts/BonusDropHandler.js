@@ -1,9 +1,9 @@
 /**
  * NONE type script
- * 
+ *
  * BonusDropHander IS TO HANDLE DROP TABLES TO BE PASSED
  * TO PartyDungeon's ItemDrop FEATURE.
- * 
+ *
  * TO IMPORT:
  *   const BonusDropHandler = load(`${sm.getScriptDirectory("AlbyDungeon")}/BonusDropHandler.js`);
  *
@@ -28,11 +28,11 @@
 
         function init(world, multiplier = 1) {
             const DROP_LOCATION = {
-                ROOM_ONE: new Location(world, -1449, 43, -501),
-                ROOM_TWO: new Location(world, -1381, 43, -485),
-                ROOM_THREE: new Location(world, -1465, 43, -569),
-                ROOM_FOUR: new Location(world, -1543, 43, -525),
-                ROOM_BOSS: new Location(world, -1608, 43, -553),
+                ROOM_ONE: new Location(world, -1448.5, 43, -500.5),
+                ROOM_TWO: new Location(world, -1380.5, 43, -484.5),
+                ROOM_THREE: new Location(world, -1464.5, 43, -568.5),
+                ROOM_FOUR: new Location(world, -1542.5, 43, -524.5),
+                ROOM_BOSS: new Location(world, -1607.5, 43, -552.5),
             }
             return {
                 "room_one": () => run(DROP_LOCATION.ROOM_ONE, room_one_table(), DROP_AMOUNT.NORMAL * multiplier),
@@ -84,6 +84,8 @@
         function room_two_table() {
             const table = new HashMap();
             table.put(new ItemStack(Material.DIAMOND_ORE, 1), 1);
+            table.put(SpecialItemHandler.soul_essence.SPEED_2, 1);
+            table.put(SpecialItemHandler.soul_essence.FIRE_RESISTANCE_1, 1);
 
             table.put(new ItemStack(Material.IRON_ORE, 2), 3);
             table.put(new ItemStack(Material.GOLD_ORE, 2), 3);
@@ -102,9 +104,15 @@
             table.put(RandomItemGenerator.random_item(Material.IRON_LEGGINGS, 3, 2), 5);
             table.put(RandomItemGenerator.random_item(Material.IRON_BOOTS, 3, 2), 5);
             table.put(RandomItemGenerator.random_item(Material.IRON_SWORD, 3, 2), 5);
-            table.put(RandomItemGenerator.random_arrow(4, 8), 5);
+            table.put(new ItemStack(Material.SPECTRAL_ARROW, 5), 3);
+            table.put(RandomItemGenerator.random_arrow(2, 4), 5);
+            table.put(RandomItemGenerator.random_arrow(2, 4), 5);
+            table.put(RandomItemGenerator.random_arrow(2, 4), 5);
+            table.put(RandomItemGenerator.random_arrow(2, 4), 5);
+            table.put(RandomItemGenerator.random_arrow(2, 4), 5);
             table.put(RandomItemGenerator.potion(), 5);
             table.put(RandomItemGenerator.splash_potion(), 5);
+            table.put(RandomItemGenerator.random_book(1, 2), 5);
 
             table.put(new ItemStack(Material.EXPERIENCE_BOTTLE, 8), 7);
             table.put(new ItemStack(Material.PRISMARINE_CRYSTALS, 16), 7);
@@ -148,7 +156,8 @@
             table.put(RandomItemGenerator.lingering_potion(), 5);
             table.put(RandomItemGenerator.random_book(3, 3), 5);
 
-
+            table.put(new ItemStack(Material.COOKED_CHICKEN, 3), 7);
+            table.put(new ItemStack(Material.COOKED_BEEF, 3), 7);
             table.put(new ItemStack(Material.EXPERIENCE_BOTTLE, 8), 7);
             return table;
         }
@@ -179,7 +188,7 @@
             table.put(new ItemStack(Material.EMERALD_ORE, 3), 3);
             table.put(new ItemStack(Material.DIAMOND_ORE, 1), 3);
             table.put(new ItemStack(Material.NETHER_QUARTZ_ORE, 16), 3);
-            
+
             table.put(new ItemStack(Material.GLOWSTONE, 16), 5);
             table.put(new ItemStack(Material.OBSIDIAN, 8), 5);
             table.put(new ItemStack(Material.DIRT, 8), 5);
@@ -228,7 +237,7 @@
             table.put(SpecialItemHandler.soul_essence.HEALTH_BOOST_1, 2);
             table.put(SpecialItemHandler.lucky_coupon.COUPON_x3, 2);
 
-            
+
             table.put(new ItemStack(Material.COAL_ORE, 8), 3);
             table.put(new ItemStack(Material.IRON_ORE, 6), 3);
             table.put(new ItemStack(Material.GOLD_ORE, 6), 3);
@@ -250,7 +259,7 @@
             table.put(new ItemStack(Material.MUSIC_DISC_11, 1), 3);
             table.put(new ItemStack(Material.MUSIC_DISC_WAIT, 1), 3);
             table.put(new ItemStack(Material.MUSIC_DISC_PIGSTEP, 1), 3);
-            
+
             table.put(new ItemStack(Material.GLOWSTONE, 16), 5);
             table.put(new ItemStack(Material.OBSIDIAN, 16), 5);
             table.put(new ItemStack(Material.DIRT, 8), 5);
@@ -303,7 +312,7 @@
             const ItemDrop = sm.createItemDrop(location, table);
             ScheduleHandler(() => {
                 ItemDrop.run(amount);
-            });   
+            });
         }
 
         return {

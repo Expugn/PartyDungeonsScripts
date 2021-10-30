@@ -1,6 +1,6 @@
 /**
  * INTERACT type script for BLOCK (-1387, 43, -479)
- * 
+ *
  * Room Two Chest Interaction
  *
  * @author      Expugn

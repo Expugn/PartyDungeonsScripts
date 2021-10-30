@@ -1,6 +1,6 @@
 /**
  * INTERACT type script for BLOCK (-1459, 43, -563)
- * 
+ *
  * Room Three Chest Interaction
  *
  * @author      Expugn
@@ -23,7 +23,7 @@ function main() {
     const drop_rate = DropRateHandler.get_drop_rate(dungeon.getTempVariable(var_names.drop_rate));
     const enemies = EnemyHandler.init(player.getWorld(), drop_rate);
     const doors = DoorHandler.init(player.getWorld());
-    
+
     if (dungeon.getTempVariable(var_names.room_three)) {
         // ROOM ONE ALREADY TRIGGERED
         player.sendMessage(`${ChatColor.GRAY}The chest is empty!`);

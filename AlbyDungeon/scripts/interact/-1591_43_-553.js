@@ -1,6 +1,6 @@
 /**
  * INTERACT type script for BLOCK (-1591, 43, -553)
- * 
+ *
  * Boss Chest interaction
  *
  * @author      Expugn

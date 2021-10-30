@@ -1,6 +1,6 @@
 /**
  * INTERACT type script for BLOCK (-1502, 69, -512)
- * 
+ *
  * Solo Mode NORMAL - Shop Interaction
  *
  * @author      Expugn

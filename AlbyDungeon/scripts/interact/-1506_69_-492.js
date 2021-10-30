@@ -1,6 +1,6 @@
 /**
  * INTERACT type script for BLOCK (-1506, 69, -492)
- * 
+ *
  * Mysterious Cauldron Interaction
  *
  * @author      Expugn

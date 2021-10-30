@@ -1,13 +1,13 @@
 /**
  * NONE type script
- * 
+ *
  * SPAWNS ENEMIES IN VARYING DIFFICULTIES IN DIFFERENT LOCATIONS AND
  * APPLIES THEIR EQUIPMENT AND POTION EFFECTS.
  * THIS REQUIRES ScheduleHandler.js TO SPAWN ENEMIES IN GAME.
- * 
+ *
  * TO IMPORT:
  *   const EnemyHandler = load(`${sm.getScriptDirectory("AlbyDungeon")}/EnemyHandler.js`);
- * 
+ *
  * EXAMPLE USAGE:
  *   const EnemyHandler = load(`${sm.getScriptDirectory("AlbyDungeon")}/EnemyHandler.js`);
  *   const ScheduleHandler = load(`${sm.getScriptDirectory("AlbyDungeon")}/ScheduleHandler.js`);
@@ -16,7 +16,7 @@
  *      enemies.room_one.easy();   // EASY DIFFICULTY
  *      enemies.room_one.normal(); // NORMAL DIFFICULTY
  *   });
- * 
+ *
  * @author      Expugn
  * @version     0.1
  * @type        NONE
@@ -33,7 +33,7 @@ function main() {
         const Attribute = Java.type("org.bukkit.attribute.Attribute");
         const Enchantment = Java.type("org.bukkit.enchantments.Enchantment");
         const PotionEffectType = Java.type("org.bukkit.potion.PotionEffectType");
-    
+
         const ENEMY_NAMES = {
             ROOM_ONE_GUARD:   "Room One Guard",
             ROOM_TWO_GUARD:   "Room Two Guard",
@@ -54,14 +54,14 @@ function main() {
                 "room_boss": room_boss(world)
             };
         }
-        
+
         /**
          * ROOM ONE ENEMIES
          * - 8 Zombies
-         * 
+         *
          * EASY: lv1 ; NORMAL: lv2 ; HARD: lv3 ; EXTREME: lv4
-         * 
-         * @param {World} world 
+         *
+         * @param {World} world
          * @returns {Object}
          */
         function room_one(world) {
@@ -75,23 +75,23 @@ function main() {
                 new Location(world, -1446, 44, -510),
                 new Location(world, -1452, 44, -510)
             ];
-        
+
             return {
                 "easy":   () => spawn_enemies(locations, Zombie, easy),
                 "normal": () => spawn_enemies(locations, Zombie, normal),
                 "hard": () => spawn_enemies(locations, Zombie, hard),
                 "extreme": () => spawn_enemies(locations, Zombie, extreme)
             };
-        
+
             function init(enemy) {
                 enemy.setCustomName(ENEMY_NAMES.ROOM_ONE_GUARD);
             }
-        
+
             function easy(enemy) {
                 init(enemy);
                 zombie_lv1(enemy);
             }
-        
+
             function normal(enemy) {
                 init(enemy);
                 zombie_lv2(enemy);
@@ -111,10 +111,10 @@ function main() {
         /**
          * ROOM TWO ENEMIES
          * - 8 Skeletons
-         * 
+         *
          * EASY: lv1 ; NORMAL: lv2 ; HARD: lv3 ; EXTREME: lv4
-         * 
-         * @param {World} world 
+         *
+         * @param {World} world
          * @returns {Object}
          */
          function room_two(world) {
@@ -128,23 +128,23 @@ function main() {
                 new Location(world, -1378, 44, -494),
                 new Location(world, -1384, 44, -494)
             ];
-        
+
             return {
                 "easy":   () => spawn_enemies(locations, Skeleton, easy),
                 "normal": () => spawn_enemies(locations, Skeleton, normal),
                 "hard": () => spawn_enemies(locations, Skeleton, hard),
                 "extreme": () => spawn_enemies(locations, Skeleton, extreme)
             };
-        
+
             function init(enemy) {
                 enemy.setCustomName(ENEMY_NAMES.ROOM_TWO_GUARD);
             }
-        
+
             function easy(enemy) {
                 init(enemy);
                 skeleton_lv1(enemy);
             }
-        
+
             function normal(enemy) {
                 init(enemy);
                 skeleton_lv2(enemy);
@@ -165,10 +165,10 @@ function main() {
          * ROOM THREE ENEMIES
          * - 4 Skeletons
          * - 4 Zombies
-         * 
+         *
          * EASY: lv1 ; NORMAL: lv2 ; HARD: lv3 ; EXTREME: lv4
-         * 
-         * @param {World} world 
+         *
+         * @param {World} world
          * @returns {Object}
          */
          function room_three(world) {
@@ -184,7 +184,7 @@ function main() {
                 new Location(world, -1456, 44, -572),
                 new Location(world, -1468, 44, -578)
             ];
-        
+
             return {
                 "easy":   () => {
                     spawn_enemies(zombie_locations, Zombie, easy_zombie);
@@ -203,11 +203,11 @@ function main() {
                     spawn_enemies(skeleton_locations, Skeleton, extreme_skeleton);
                 }
             };
-        
+
             function init(enemy) {
                 enemy.setCustomName(ENEMY_NAMES.ROOM_THREE_GUARD);
             }
-        
+
             function easy_zombie(enemy) {
                 init(enemy);
                 zombie_lv1(enemy);
@@ -216,7 +216,7 @@ function main() {
                 init(enemy);
                 skeleton_lv1(enemy);
             }
-        
+
             function normal_zombie(enemy) {
                 init(enemy);
                 zombie_lv2(enemy);
@@ -249,13 +249,13 @@ function main() {
          * ROOM FOUR ENEMIES
          * WAVE 1
          * - 8 Zombies
-         * 
+         *
          * WAVE 2
          * - 8 Skeleton
-         * 
+         *
          * EASY: lv2 ; NORMAL: lv3 ; HARD: lv4 ; EXTREME: lv5
-         * 
-         * @param {World} world 
+         *
+         * @param {World} world
          * @returns {Object}
          */
          function room_four(world) {
@@ -269,7 +269,7 @@ function main() {
                 new Location(world, -1540, 44, -528),
                 new Location(world, -1546, 44, -528)
             ];
-        
+
             return {
                 "easy":   () => spawn_enemies(locations, Zombie, easy_zombie),
                 "easy_reinforcements": () => spawn_enemies(locations, Skeleton, easy_skeleton),
@@ -280,11 +280,11 @@ function main() {
                 "extreme": () => spawn_enemies(locations, Zombie, extreme_zombie),
                 "extreme_reinforcements": () => spawn_enemies(locations, Skeleton, extreme_skeleton),
             };
-        
+
             function init(enemy) {
                 enemy.setCustomName(ENEMY_NAMES.ROOM_FOUR_GUARD);
             }
-        
+
             function easy_zombie(enemy) {
                 init(enemy);
                 zombie_lv2(enemy);
@@ -293,7 +293,7 @@ function main() {
                 init(enemy);
                 skeleton_lv2(enemy);
             }
-        
+
             function normal_zombie(enemy) {
                 init(enemy);
                 zombie_lv3(enemy);
@@ -327,13 +327,13 @@ function main() {
          * WAVE 1
          * - 5 Zombies
          * - 5 Skeleton
-         * 
+         *
          * WAVE 2
          * - 1 Elder Guardian (BOSS)
-         * 
+         *
          * EASY: lv3 ; NORMAL: lv4 ; HARD: lv5 ; EXTREME: lv6
-         * 
-         * @param {World} world 
+         *
+         * @param {World} world
          * @returns {Object}
          */
          function room_boss(world) {
@@ -354,7 +354,7 @@ function main() {
             const boss_locations = [
                 new Location(world, -1607, 41, -552)
             ];
-        
+
             return {
                 "easy": () => {
                     spawn_enemies(zombie_locations, Zombie, easy_zombie);
@@ -377,11 +377,11 @@ function main() {
                 },
                 "extreme_boss": () => spawn_enemies(boss_locations, ElderGuardian, extreme_boss),
             };
-        
+
             function init(enemy) {
                 enemy.setCustomName(ENEMY_NAMES.ROOM_BOSS_GUARD);
             }
-        
+
             function easy_zombie(enemy) {
                 init(enemy);
                 zombie_lv3(enemy);
@@ -436,7 +436,7 @@ function main() {
             }
             function extreme_boss(enemy) {
                 hard_boss(enemy);
-                
+
                 const equipment = enemy.getEquipment();
                 equipment.setHelmet(enchant(equipment.getHelmet(), Enchantment.THORNS, 2));
                 equipment.setChestplate(enchant(equipment.getChestplate(), Enchantment.THORNS, 2));
@@ -533,6 +533,7 @@ function main() {
             enemy.setMaxHealth(30.0);
             enemy.setGlowing(true);
             enemy.setPersistent(true);
+            enemy.setRemoveWhenFarAway(false);
             enemy.getAttribute(Attribute.GENERIC_FOLLOW_RANGE).setBaseValue(100);
             enemy.getAttribute(Attribute.GENERIC_KNOCKBACK_RESISTANCE).setBaseValue(1);
             enemy.getAttribute(Attribute.GENERIC_MAX_HEALTH).setBaseValue(30);
@@ -594,13 +595,13 @@ function main() {
             const Integer = Java.type("java.lang.Integer");
             enemy.addPotionEffect(new PotionEffect(type, Integer.MAX_VALUE, amplifier));
         }
-        
+
         /**
          * BULK SPAWN A GROUP OF ENEMIES
-         * 
-         * @param {Location[]} locations 
-         * @param {Entity.class} enemy_type 
-         * @param {function} callback 
+         *
+         * @param {Location[]} locations
+         * @param {Entity.class} enemy_type
+         * @param {function} callback
          */
         function spawn_enemies(locations, enemy_type, callback) {
             const world = locations[0].getWorld();
@@ -608,7 +609,7 @@ function main() {
                 world.spawn(loc, enemy_type.class, (enemy) => callback(enemy));
             }
         }
-    
+
         return {
             enemy_names: ENEMY_NAMES,
             init: init

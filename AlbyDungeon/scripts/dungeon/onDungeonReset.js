@@ -1,8 +1,8 @@
 /**
  * DUNGEON type script for DUNGEON AlbyDungeon
- * 
+ *
  * onDungeonReset is a script containing instructions
- * on additional things to do when the dungeon resets 
+ * on additional things to do when the dungeon resets
  * (disposing of custom entities, changing terrain, etc).
  *
  * @author      CONSOLE
@@ -21,6 +21,8 @@ function main() {
     const dungeon_file = dungeon.getDungeon().getDungeonFile();
     const world = dungeon_file.getWorld();
     const doors = DoorHandler.init(world);
+
+    dungeon.messageArea(`The dungeon will now be reset...`);
 
     ScheduleHandler(() => {
         // RESET DOORS
@@ -43,7 +45,7 @@ function main() {
         const BoundingBox = Java.type("org.bukkit.util.BoundingBox");
         const blockA = dungeon_file.getBlockA();
         const blockB = dungeon_file.getBlockB();
-        const dungeon_area = new BoundingBox(blockA.getX(), blockA.getY(), blockA.getZ(), 
+        const dungeon_area = new BoundingBox(blockA.getX(), blockA.getY(), blockA.getZ(),
                                              blockB.getX(), blockB.getY(), blockB.getZ());
         const entities = world.getNearbyEntities(dungeon_area);
         const enemy_names = load(`${sm.getScriptDirectory("AlbyDungeon")}/EnemyHandler.js`).enemy_names;
@@ -58,7 +60,7 @@ function main() {
         for (const entity of entities) {
             if (names.indexOf(entity.getName()) < 0) {
                 // ENTITY IS NOT NAMED IN EntityHandler, LEAVE THEM BE
-                continue; 
+                continue;
             }
             entity.remove();
         }

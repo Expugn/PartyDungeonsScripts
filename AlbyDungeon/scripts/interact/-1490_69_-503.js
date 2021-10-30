@@ -1,6 +1,6 @@
 /**
  * INTERACT type script for BLOCK (-1490, 69, -503)
- * 
+ *
  * Drop Multiplier x2 Shop interaction
  *
  * @author      Expugn

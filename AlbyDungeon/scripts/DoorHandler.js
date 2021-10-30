@@ -1,12 +1,12 @@
 /**
  * NONE type script
- * 
+ *
  * OPENS AND CLOSES AlbyDungeon's DOORS.
  * THIS REQUIRES ScheduleHandler.js TO PLACE BLOCKS IN GAME.
- * 
+ *
  * TO IMPORT:
  *   const DoorHandler = load(`${sm.getScriptDirectory("AlbyDungeon")}/DoorHandler.js`);
- * 
+ *
  * EXAMPLE USAGE:
  *   const DoorHandler = load(`${sm.getScriptDirectory("AlbyDungeon")}/DoorHandler.js`);
  *   const ScheduleHandler = load(`${sm.getScriptDirectory("AlbyDungeon")}/ScheduleHandler.js`);
@@ -30,16 +30,16 @@ function main() {
 
         /**
          * GET ALL AlbyDungeon DOORS
-         * 
+         *
          * DOOR pos IS DETERMINED BY THE CARDINAL DIRECTION WHILE INSIDE THE ROOM
          * AND THE STARTING POSITION IS THE LOWEST BLOCKS IN x, y, z (DEPENDING ON DIRECTION)
-         * 
+         *
          * Example Usage:
          *   const doors = init_doors(player.getWorld());
          *   doors.room_one_south.run_south(false); // CLOSE ROOM ONE SOUTH DOOR
-         * 
-         * @param {} world 
-         * @returns 
+         *
+         * @param {} world
+         * @returns
          */
         function init(world) {
             return {
@@ -62,9 +62,9 @@ function main() {
 
         /**
          * BASIC DOORS USE THE SAME MATERIAL THROUGHOUT
-         * 
+         *
          * @param {World}       world
-         * @param {[x, y, z]}   pos 
+         * @param {[x, y, z]}   pos
          * @returns {Object}
          */
         function BasicDoor(world, pos) {
@@ -107,9 +107,9 @@ function main() {
         /**
          * KEY DOORS USE MOSTLY THE SAME MATERIAL,
          * BUT THEY HAVE AN IRON_BLOCK IN THE CENTER
-         * 
+         *
          * @param {World}       world
-         * @param {[x, y, z]}   pos 
+         * @param {[x, y, z]}   pos
          * @returns {Object}
          */
         function KeyDoor(world, pos) {
@@ -163,12 +163,12 @@ function main() {
         /**
         * BOSS DOORS USE MOSTLY THE SAME MATERIAL,
         * BUT THEY HAVE AN LARGE SPECIAL PATTERN IN THE CENTER
-        * 
+        *
         * AlbyDungeon does not have BossDoors in NORTH/SOUTH,
         * so those functions aren't included.
-        * 
+        *
         * @param {World}       world
-        * @param {[x, y, z]}   pos 
+        * @param {[x, y, z]}   pos
         * @returns {Object}
         */
         function BossDoor(world, pos) {

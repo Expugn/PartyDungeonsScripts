@@ -1,8 +1,8 @@
 /**
  * NONE type script
- * 
+ *
  * MANAGES ALL VARIABLE NAMES AND INITIALIZES THEM TO A DEFAULT STATE AS NEEDED
- * 
+ *
  * TO IMPORT:
  *   const VariableHandler = load(`${sm.getScriptDirectory("AlbyDungeon")}/VariableHandler.js`);
  *

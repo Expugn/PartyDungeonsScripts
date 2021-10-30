@@ -1,12 +1,12 @@
 /**
  * NONE type script
- * 
+ *
  * GIVES A RANDOM TYPE OF TIPPED_ARROW, ENCHANTED_BOOK, etc
  * USEFUL WITH BonusDropHandler TO GIVE RANDOM ENCHANTED ITEMS OR POTIONS
  *
  * TO IMPORT:
  *   const RandomItemGenerator = load(`${sm.getScriptDirectory("AlbyDungeon")}/RandomItemGenerator.js`);
- * 
+ *
  * @author      Expugn
  * @version     0.1
  * @type        NONE
@@ -39,7 +39,7 @@ function main() {
             tipped_arrow:       TippedArrow,
             enchanted_book:     EnchantedBook,
             enchanted_item:     EnchantedItem,
-            
+
             random_arrow: (min_amount, max_amount) => TippedArrow(Math.floor(Math.random() * (max_amount - min_amount)) + min_amount),
             random_book: (max_level, max_enchants) => EnchantedBook(Math.floor(Math.random() * (max_level) + 1), Math.floor(Math.random() * (max_enchants) + 1)),
             random_item: (material, max_level, max_enchants) => EnchantedItem(material, Math.floor(Math.random() * (max_level) + 1), Math.floor(Math.random() * (max_enchants) + 1)),

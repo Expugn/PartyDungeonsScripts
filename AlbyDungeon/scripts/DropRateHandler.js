@@ -1,8 +1,8 @@
 /**
  * NONE type script
- * 
+ *
  * HANDLES DROP RATE INFORMATION FOR AlbyDungeon (drop rate values).
- * 
+ *
  * TO IMPORT:
  *   const DropRateHandler = load(`${sm.getScriptDirectory("AlbyDungeon")}/DropRateHandler.js`);
  *

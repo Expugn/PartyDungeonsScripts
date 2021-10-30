@@ -1,6 +1,6 @@
 /**
  * DUNGEON type script for DUNGEON AlbyDungeon
- * 
+ *
  * onPartyMemberJoin is a script containing instructions
  * on how to start the dungeon once a party member joins.
  *
@@ -30,21 +30,20 @@ function main() {
         return;
     }
     dungeon.setTempVariable(var_names.start, true);
-    
+
     const time_start = 5;
     dungeon.messageArea(`${ChatColor.GOLD}Alby Dungeon ${ChatColor.YELLOW}party recruitment has started.\n${ChatColor.GRAY}The dungeon will warp all party members inside in ${ChatColor.GOLD}${time_start} ${ChatColor.GRAY}minutes.`);
 
     // SLEEP 60,000 and try again
     var counter = 0;
     while (counter < 5) {
-        // java.lang.Thread.sleep(60000) // 1 minute * 5 = 5 minute total wait time
-        java.lang.Thread.sleep(2000); // DEBUG
+        java.lang.Thread.sleep(60000) // 1 minute * 5 = 5 minute total wait time
         counter++;
 
         if (counter < time_start) {
             const time_remaining = time_start - counter;
             dungeon.messageArea(`${ChatColor.GOLD}Alby Dungeon ${ChatColor.YELLOW}party recruitment is ongoing.\n${ChatColor.GRAY}There is ${ChatColor.GOLD}${time_remaining} ${ChatColor.GRAY}minute(s) remaining before all party members are warped inside.`);
-        }  
+        }
     }
 
     if (dungeon.getParty().size() > 0) {

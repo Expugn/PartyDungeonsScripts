@@ -1,13 +1,13 @@
 /**
  * NONE type script
- * 
+ *
  * MANAGES SpecialItems THAT AlbyDungeon USES (Soul Essence, Lucky Coupon, etc)
- * 
+ *
  * Soul Stone, Runic Emerald, AlbyDungeon SpecialEquipment ARE UNIMPLEMENTED.
  *
  * TO IMPORT:
  *   const SpecialItemHandler = load(`${sm.getScriptDirectory("AlbyDungeon")}/SpecialItemHandler.js`);
- * 
+ *
  * @author      Expugn
  * @version     0.1
  * @type        NONE
@@ -78,9 +78,9 @@ function main() {
                 rarity:             soul_essence_rarity
             },
             "lucky_coupon": {
-                COUPON_x2:          LuckyCoupon(LUCKY_COUPON_NAME.COUPON_x2), 
-                COUPON_x3:          LuckyCoupon(LUCKY_COUPON_NAME.COUPON_x3), 
-                COUPON_x4:          LuckyCoupon(LUCKY_COUPON_NAME.COUPON_x4), 
+                COUPON_x2:          LuckyCoupon(LUCKY_COUPON_NAME.COUPON_x2),
+                COUPON_x3:          LuckyCoupon(LUCKY_COUPON_NAME.COUPON_x3),
+                COUPON_x4:          LuckyCoupon(LUCKY_COUPON_NAME.COUPON_x4),
             },
             soul_essence_name: SOUL_ESSENCE_NAME,
             lucky_coupon_name: LUCKY_COUPON_NAME,
@@ -126,7 +126,7 @@ function main() {
         function create(name, lore, material) {
             const item = new ItemStack(material, 1);
             const meta = item.getItemMeta();
-            
+
             meta.setLore(lore);
             meta.setDisplayName(name);
             meta.addEnchant(Enchantment.ARROW_DAMAGE, 1, false);
@@ -173,7 +173,7 @@ function main() {
 
         function soul_essence_rarity(type) {
             switch (type) {
-                case 3: 
+                case 3:
                 case 4:
                     return RARITY_COLOR.RARE;
                 case 5:

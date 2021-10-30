@@ -1,6 +1,6 @@
 /**
  * INTERACT type script for BLOCK (-1495, 73, -501)
- * 
+ *
  * Extreme difficulty button interaction
  *
  * @author      Expugn

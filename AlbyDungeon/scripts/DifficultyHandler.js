@@ -1,9 +1,9 @@
 /**
  * NONE type script
- * 
+ *
  * MANAGES INFORMATION ABOUT AlbyDungeon's CURRENT DIFFICULTY LEVEL
- * (difficulty names and messages). 
- * 
+ * (difficulty names and messages).
+ *
  * TO IMPORT:
  *   const DifficultyHandler = load(`${sm.getScriptDirectory("AlbyDungeon")}/DifficultyHandler.js`);
  *
