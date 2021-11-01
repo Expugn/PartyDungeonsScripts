@@ -14,8 +14,6 @@
  * @param {Player}          player     SCRIPT BINDING
  */
 function main() {
-    // print(`onPartyMemberJoined called`);
-
     const ChatColor = Java.type("org.bukkit.ChatColor");
     const VariableHandler = load(`${sm.getScriptDirectory("AlbyDungeon")}/VariableHandler.js`);
     const var_names = VariableHandler.variable_names;

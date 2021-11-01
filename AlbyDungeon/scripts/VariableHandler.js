@@ -7,7 +7,7 @@
  *   const VariableHandler = load(`${sm.getScriptDirectory("AlbyDungeon")}/VariableHandler.js`);
  *
  * @author      Expugn
- * @version     0.1
+ * @version     0.2
  * @type        NONE
  */
 function main() {
@@ -36,6 +36,10 @@ function main() {
             key_three_used: "key_three_used",
             key_boss_used: "key_boss_used",
 
+            // WAVE VARIABLES, IF TRUE THEN WAVE HAS SPAWNED
+            // WAVE VARIABLE ONLY NEEDED IF WAVE ENEMIES SHARE THE SAME NAME
+            room_four_wave_2: "room_four_wave_2",
+
             // DUNGEON STATUS
             difficulty: "difficulty",
             extreme: "extreme",
@@ -45,9 +49,6 @@ function main() {
             // PERMANENT VARIABLES
             cash_money_start: "cash_money_start", // string with start date of money collection
             cash_money: "cash_money", // count how much money spent in AlbyDungeon
-
-            // NOT INCLUDED
-            // <entity_name>_killed     USED BY onEntityDeath, USED TO COUNT HOW MANY ENEMIES DIED
         }
 
         function init(dungeon) {
@@ -61,6 +62,7 @@ function main() {
             dungeon.setTempVariable(VARIABLE_NAMES.key_two, false);
             dungeon.setTempVariable(VARIABLE_NAMES.key_three, false);
             dungeon.setTempVariable(VARIABLE_NAMES.key_boss, false);
+            dungeon.setTempVariable(VARIABLE_NAMES.room_four_wave_2, false);
             dungeon.setTempVariable(VARIABLE_NAMES.difficulty, "");
             dungeon.setTempVariable(VARIABLE_NAMES.extreme, false);
             dungeon.setTempVariable(VARIABLE_NAMES.drop_rate, 1);

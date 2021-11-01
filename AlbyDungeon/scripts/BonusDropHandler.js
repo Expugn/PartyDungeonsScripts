@@ -8,7 +8,7 @@
  *   const BonusDropHandler = load(`${sm.getScriptDirectory("AlbyDungeon")}/BonusDropHandler.js`);
  *
  * @author      Expugn
- * @version     0.1
+ * @version     0.2
  * @type        NONE
  */
  function main() {
@@ -67,11 +67,11 @@
             table.put(new ItemStack(Material.IRON_LEGGINGS, 1), 5);
             table.put(new ItemStack(Material.IRON_BOOTS, 1), 5);
             table.put(new ItemStack(Material.IRON_SWORD, 1), 5);
-            table.put(RandomItemGenerator.random_item(Material.IRON_HELMET, 3, 2), 5);
-            table.put(RandomItemGenerator.random_item(Material.IRON_CHESTPLATE, 3, 2), 5);
-            table.put(RandomItemGenerator.random_item(Material.IRON_LEGGINGS, 3, 2), 5);
-            table.put(RandomItemGenerator.random_item(Material.IRON_BOOTS, 3, 2), 5);
-            table.put(RandomItemGenerator.random_item(Material.IRON_SWORD, 3, 2), 5);
+            table.put(RandomItemGenerator.random_item(Material.IRON_HELMET, 3, 2, true), 5);
+            table.put(RandomItemGenerator.random_item(Material.IRON_CHESTPLATE, 3, 2, true), 5);
+            table.put(RandomItemGenerator.random_item(Material.IRON_LEGGINGS, 3, 2, true), 5);
+            table.put(RandomItemGenerator.random_item(Material.IRON_BOOTS, 3, 2, true), 5);
+            table.put(RandomItemGenerator.random_item(Material.IRON_SWORD, 3, 2, true), 5);
             table.put(RandomItemGenerator.random_arrow(4, 8), 5);
             table.put(RandomItemGenerator.potion(), 5);
             table.put(RandomItemGenerator.splash_potion(), 5);
@@ -99,11 +99,11 @@
             table.put(new ItemStack(Material.IRON_LEGGINGS, 1), 5);
             table.put(new ItemStack(Material.IRON_BOOTS, 1), 5);
             table.put(new ItemStack(Material.IRON_SWORD, 1), 5);
-            table.put(RandomItemGenerator.random_item(Material.IRON_HELMET, 3, 2), 5);
-            table.put(RandomItemGenerator.random_item(Material.IRON_CHESTPLATE, 3, 2), 5);
-            table.put(RandomItemGenerator.random_item(Material.IRON_LEGGINGS, 3, 2), 5);
-            table.put(RandomItemGenerator.random_item(Material.IRON_BOOTS, 3, 2), 5);
-            table.put(RandomItemGenerator.random_item(Material.IRON_SWORD, 3, 2), 5);
+            table.put(RandomItemGenerator.random_item(Material.IRON_HELMET, 3, 2, true), 5);
+            table.put(RandomItemGenerator.random_item(Material.IRON_CHESTPLATE, 3, 2, true), 5);
+            table.put(RandomItemGenerator.random_item(Material.IRON_LEGGINGS, 3, 2, true), 5);
+            table.put(RandomItemGenerator.random_item(Material.IRON_BOOTS, 3, 2, true), 5);
+            table.put(RandomItemGenerator.random_item(Material.IRON_SWORD, 3, 2, true), 5);
             table.put(new ItemStack(Material.SPECTRAL_ARROW, 5), 3);
             table.put(RandomItemGenerator.random_arrow(2, 4), 5);
             table.put(RandomItemGenerator.random_arrow(2, 4), 5);
@@ -112,7 +112,7 @@
             table.put(RandomItemGenerator.random_arrow(2, 4), 5);
             table.put(RandomItemGenerator.potion(), 5);
             table.put(RandomItemGenerator.splash_potion(), 5);
-            table.put(RandomItemGenerator.random_book(1, 2), 5);
+            table.put(RandomItemGenerator.random_book(1, 2, true), 5);
 
             table.put(new ItemStack(Material.EXPERIENCE_BOTTLE, 8), 7);
             table.put(new ItemStack(Material.PRISMARINE_CRYSTALS, 16), 7);
@@ -121,11 +121,11 @@
         }
         function room_three_table() {
             const table = new HashMap();
-            table.put(RandomItemGenerator.random_item(Material.DIAMOND_SWORD, 3, 2), 1);
-            table.put(RandomItemGenerator.random_item(Material.DIAMOND_HELMET, 3, 2), 1);
-            table.put(RandomItemGenerator.random_item(Material.DIAMOND_CHESTPLATE, 3, 2), 1);
-            table.put(RandomItemGenerator.random_item(Material.DIAMOND_LEGGINGS, 3, 2), 1);
-            table.put(RandomItemGenerator.random_item(Material.DIAMOND_BOOTS, 3, 2), 1);
+            table.put(RandomItemGenerator.random_item(Material.DIAMOND_SWORD, 3, 2, true), 1);
+            table.put(RandomItemGenerator.random_item(Material.DIAMOND_HELMET, 3, 2, true), 1);
+            table.put(RandomItemGenerator.random_item(Material.DIAMOND_CHESTPLATE, 3, 2, true), 1);
+            table.put(RandomItemGenerator.random_item(Material.DIAMOND_LEGGINGS, 3, 2, true), 1);
+            table.put(RandomItemGenerator.random_item(Material.DIAMOND_BOOTS, 3, 2, true), 1);
             table.put(new ItemStack(Material.DIAMOND_HELMET, 1), 1);
             table.put(new ItemStack(Material.DIAMOND_CHESTPLATE, 1), 1);
             table.put(new ItemStack(Material.DIAMOND_LEGGINGS, 1), 1);
@@ -145,16 +145,16 @@
 
             table.put(new ItemStack(Material.GLOWSTONE, 8), 5);
             table.put(new ItemStack(Material.CLAY, 16), 5);
-            table.put(RandomItemGenerator.random_item(Material.IRON_HELMET, 3, 3), 5);
-            table.put(RandomItemGenerator.random_item(Material.IRON_CHESTPLATE, 3, 3), 5);
-            table.put(RandomItemGenerator.random_item(Material.IRON_LEGGINGS, 3, 3), 5);
-            table.put(RandomItemGenerator.random_item(Material.IRON_BOOTS, 3, 3), 5);
-            table.put(RandomItemGenerator.random_item(Material.IRON_SWORD, 3, 3), 5);
+            table.put(RandomItemGenerator.random_item(Material.IRON_HELMET, 3, 3, true), 5);
+            table.put(RandomItemGenerator.random_item(Material.IRON_CHESTPLATE, 3, 3, true), 5);
+            table.put(RandomItemGenerator.random_item(Material.IRON_LEGGINGS, 3, 3, true), 5);
+            table.put(RandomItemGenerator.random_item(Material.IRON_BOOTS, 3, 3, true), 5);
+            table.put(RandomItemGenerator.random_item(Material.IRON_SWORD, 3, 3, true), 5);
             table.put(RandomItemGenerator.random_arrow(4, 8), 5);
             table.put(RandomItemGenerator.potion(), 5);
             table.put(RandomItemGenerator.splash_potion(), 5);
             table.put(RandomItemGenerator.lingering_potion(), 5);
-            table.put(RandomItemGenerator.random_book(3, 3), 5);
+            table.put(RandomItemGenerator.random_book(3, 3, true), 5);
 
             table.put(new ItemStack(Material.COOKED_CHICKEN, 3), 7);
             table.put(new ItemStack(Material.COOKED_BEEF, 3), 7);
@@ -163,10 +163,10 @@
         }
         function room_four_table() {
             const table = new HashMap();
-            table.put(RandomItemGenerator.random_item(Material.DIAMOND_SWORD, 4, 2), 1);
-            table.put(RandomItemGenerator.random_item(Material.DIAMOND_PICKAXE, 4, 2), 1);
-            table.put(RandomItemGenerator.random_item(Material.DIAMOND_SHOVEL, 4, 2), 1);
-            table.put(RandomItemGenerator.random_item(Material.DIAMOND_AXE, 4, 2), 1);
+            table.put(RandomItemGenerator.random_item(Material.DIAMOND_SWORD, 4, 2, true), 1);
+            table.put(RandomItemGenerator.random_item(Material.DIAMOND_PICKAXE, 4, 2, true), 1);
+            table.put(RandomItemGenerator.random_item(Material.DIAMOND_SHOVEL, 4, 2, true), 1);
+            table.put(RandomItemGenerator.random_item(Material.DIAMOND_AXE, 4, 2, true), 1);
             table.put(new ItemStack(Material.DIAMOND_SWORD, 1), 1);
             table.put(new ItemStack(Material.DIAMOND_PICKAXE, 1), 1);
             table.put(new ItemStack(Material.DIAMOND_SHOVEL, 1), 1);
@@ -202,7 +202,7 @@
             table.put(RandomItemGenerator.potion(), 5);
             table.put(RandomItemGenerator.splash_potion(), 5);
             table.put(RandomItemGenerator.lingering_potion(), 5);
-            table.put(RandomItemGenerator.random_book(3, 3), 5);
+            table.put(RandomItemGenerator.random_book(3, 3, true), 5);
 
             table.put(new ItemStack(Material.COOKED_CHICKEN, 8), 7);
             table.put(new ItemStack(Material.COOKED_BEEF, 8), 7);
@@ -213,14 +213,14 @@
         }
         function room_boss_table() {
             const table = new HashMap();
-            table.put(RandomItemGenerator.random_item(Material.DIAMOND_HELMET, 4, 4), 1);
-            table.put(RandomItemGenerator.random_item(Material.DIAMOND_CHESTPLATE, 4, 4), 1);
-            table.put(RandomItemGenerator.random_item(Material.DIAMOND_LEGGINGS, 4, 4), 1);
-            table.put(RandomItemGenerator.random_item(Material.DIAMOND_BOOTS, 4, 4), 1);
-            table.put(RandomItemGenerator.random_item(Material.DIAMOND_SWORD, 4, 4), 1);
-            table.put(RandomItemGenerator.random_item(Material.DIAMOND_PICKAXE, 4, 4), 1);
-            table.put(RandomItemGenerator.random_item(Material.DIAMOND_SHOVEL, 4, 4), 1);
-            table.put(RandomItemGenerator.random_item(Material.DIAMOND_AXE, 4, 4), 1);
+            table.put(RandomItemGenerator.random_item(Material.DIAMOND_HELMET, 4, 4, true), 1);
+            table.put(RandomItemGenerator.random_item(Material.DIAMOND_CHESTPLATE, 4, 4, true), 1);
+            table.put(RandomItemGenerator.random_item(Material.DIAMOND_LEGGINGS, 4, 4, true), 1);
+            table.put(RandomItemGenerator.random_item(Material.DIAMOND_BOOTS, 4, 4, true), 1);
+            table.put(RandomItemGenerator.random_item(Material.DIAMOND_SWORD, 4, 4, true), 1);
+            table.put(RandomItemGenerator.random_item(Material.DIAMOND_PICKAXE, 4, 4, true), 1);
+            table.put(RandomItemGenerator.random_item(Material.DIAMOND_SHOVEL, 4, 4, true), 1);
+            table.put(RandomItemGenerator.random_item(Material.DIAMOND_AXE, 4, 4, true), 1);
             table.put(new ItemStack(Material.DIAMOND_SWORD, 1), 1);
             table.put(new ItemStack(Material.DIAMOND_PICKAXE, 1), 1);
             table.put(new ItemStack(Material.DIAMOND_SHOVEL, 1), 1);
@@ -278,11 +278,11 @@
             table.put(new ItemStack(Material.IRON_LEGGINGS, 1), 5);
             table.put(new ItemStack(Material.IRON_BOOTS, 1), 5);
             table.put(new ItemStack(Material.IRON_SWORD, 1), 5);
-            table.put(RandomItemGenerator.random_item(Material.IRON_HELMET, 4, 4), 5);
-            table.put(RandomItemGenerator.random_item(Material.IRON_CHESTPLATE, 4, 4), 5);
-            table.put(RandomItemGenerator.random_item(Material.IRON_LEGGINGS, 4, 4), 5);
-            table.put(RandomItemGenerator.random_item(Material.IRON_BOOTS, 4, 4), 5);
-            table.put(RandomItemGenerator.random_item(Material.IRON_SWORD, 4, 4), 5);
+            table.put(RandomItemGenerator.random_item(Material.IRON_HELMET, 4, 4, true), 5);
+            table.put(RandomItemGenerator.random_item(Material.IRON_CHESTPLATE, 4, 4, true), 5);
+            table.put(RandomItemGenerator.random_item(Material.IRON_LEGGINGS, 4, 4, true), 5);
+            table.put(RandomItemGenerator.random_item(Material.IRON_BOOTS, 4, 4, true), 5);
+            table.put(RandomItemGenerator.random_item(Material.IRON_SWORD, 4, 4, true), 5);
             table.put(SpecialItemHandler.soul_essence.STRENGTH_2, 5);
             table.put(SpecialItemHandler.soul_essence.RESISTANCE_1, 5);
             table.put(SpecialItemHandler.soul_essence.SPEED_2, 5);
@@ -294,7 +294,7 @@
             table.put(RandomItemGenerator.potion(), 5);
             table.put(RandomItemGenerator.splash_potion(), 5);
             table.put(RandomItemGenerator.lingering_potion(), 5);
-            table.put(RandomItemGenerator.random_book(4, 5), 5);
+            table.put(RandomItemGenerator.random_book(4, 5, true), 5);
 
             table.put(new ItemStack(Material.INK_SAC, 8), 7);
             table.put(new ItemStack(Material.COD, 8), 7);

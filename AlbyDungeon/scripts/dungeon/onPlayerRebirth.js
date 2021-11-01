@@ -15,7 +15,6 @@
  * @param {LoadedDungeon}   dungeon    SCRIPT BINDING
  */
  function main() {
-    // print("onPlayerRebirth called");
     const ChatColor = Java.type("org.bukkit.ChatColor");
     const price = 200;
     if (!sm.withdrawMoney(player, price)) {

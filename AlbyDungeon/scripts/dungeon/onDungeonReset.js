@@ -6,7 +6,7 @@
  * (disposing of custom entities, changing terrain, etc).
  *
  * @author      CONSOLE
- * @version     0.1
+ * @version     0.2
  * @type        DUNGEON
  * @dungeon     AlbyDungeon
  *
@@ -14,7 +14,6 @@
  * @param {LoadedDungeon}   dungeon    SCRIPT BINDING
  */
 function main() {
-    // print("onDungeonReset called");
     const ScheduleHandler = load(`${sm.getScriptDirectory("AlbyDungeon")}/ScheduleHandler.js`);
     const DoorHandler = load(`${sm.getScriptDirectory("AlbyDungeon")}/DoorHandler.js`);
 
@@ -22,7 +21,8 @@ function main() {
     const world = dungeon_file.getWorld();
     const doors = DoorHandler.init(world);
 
-    dungeon.messageArea(`The dungeon will now be reset...`);
+    const ChatColor = Java.type("org.bukkit.ChatColor");
+    dungeon.messageArea(`${ChatColor.GRAY}The dungeon will now be reset...`);
 
     ScheduleHandler(() => {
         // RESET DOORS

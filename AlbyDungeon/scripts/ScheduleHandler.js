@@ -21,11 +21,11 @@
  *   }
  *
  * @author      Expugn
- * @version     0.1
+ * @version     0.2
  * @type        NONE
  */
 function main() {
-    return function (callback) {
+    return function (callback, delay = 0) {
         const Bukkit = Java.type("org.bukkit.Bukkit");
         const Runnable = Java.type("java.lang.Runnable");
         const task = Java.extend(Runnable, {
@@ -33,7 +33,7 @@ function main() {
         });
 
         const scheduler = Bukkit.getScheduler();
-        scheduler.runTaskLater(sm.getPlugin(), new task(), 0);
+        scheduler.runTaskLater(sm.getPlugin(), new task(), delay);
     }
 }
 main();

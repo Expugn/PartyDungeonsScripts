@@ -8,7 +8,7 @@
  *   const RandomItemGenerator = load(`${sm.getScriptDirectory("AlbyDungeon")}/RandomItemGenerator.js`);
  *
  * @author      Expugn
- * @version     0.1
+ * @version     0.2
  * @type        NONE
  */
 function main() {
@@ -41,8 +41,10 @@ function main() {
             enchanted_item:     EnchantedItem,
 
             random_arrow: (min_amount, max_amount) => TippedArrow(Math.floor(Math.random() * (max_amount - min_amount)) + min_amount),
-            random_book: (max_level, max_enchants) => EnchantedBook(Math.floor(Math.random() * (max_level) + 1), Math.floor(Math.random() * (max_enchants) + 1)),
-            random_item: (material, max_level, max_enchants) => EnchantedItem(material, Math.floor(Math.random() * (max_level) + 1), Math.floor(Math.random() * (max_enchants) + 1)),
+            random_book: (max_level, max_enchants, random_level) =>
+                EnchantedBook(Math.floor(Math.random() * (max_level) + 1), Math.floor(Math.random() * (max_enchants) + 1), random_level),
+            random_item: (material, max_level, max_enchants, random_level) =>
+                EnchantedItem(material, Math.floor(Math.random() * (max_level) + 1), Math.floor(Math.random() * (max_enchants) + 1), random_level),
 
             random_enchant:     RandomEnchant(),
             random_potion_data: RandomPotionData()
@@ -96,7 +98,7 @@ function main() {
             }
         }
 
-        function EnchantedBook(max_level, enchant_amount) {
+        function EnchantedBook(max_level, enchant_amount, random_levels = false) {
             return create();
 
             function create() {
@@ -112,21 +114,30 @@ function main() {
 
             function get_enchant(meta) {
                 const enchant = RandomEnchant();
-                meta.addStoredEnchant(enchant, (max_level > enchant.getMaxLevel() ? enchant.getMaxLevel() : max_level), false);
+                const level = random_levels ? (Math.random() * max_level) + 1 : max_level;
+                meta.addStoredEnchant(enchant, (level > enchant.getMaxLevel() ? enchant.getMaxLevel() : level), false);
             }
         }
 
-        function EnchantedItem(material, max_level, enchant_amount) {
+        function EnchantedItem(material, max_level, enchant_amount, random_levels = false) {
             return create();
 
             function create() {
                 const item = new ItemStack(material, 1);
+                let attempt = 0;
                 do {
                     const enchant = RandomEnchant();
-                    if (enchant.canEnchantItem(item) && !item.getEnchantments().containsKey(enchant)) {
-                        item.addEnchantment(enchant, (max_level > enchant.getMaxLevel() ? enchant.getMaxLevel() : max_level));
+                    if (item.getEnchantments().keySet().stream().filter(e => e.conflictsWith(enchant)).toList().size() > 0) {
+                        attempt++;
+                        continue;
                     }
-                } while (item.getEnchantments().size() <= enchant_amount);
+                    if (enchant.canEnchantItem(item) && !item.getEnchantments().containsKey(enchant)) {
+                        const level = random_levels ? (Math.random() * max_level) + 1 : max_level;
+                        item.addEnchantment(enchant, (level > enchant.getMaxLevel() ? enchant.getMaxLevel() : level));
+                    }
+                    // RESET ENCHANT ATTEMPTS
+                    attempt = 0;
+                } while (item.getEnchantments().size() <= enchant_amount && attempt <= 30);
 
                 return item;
             }

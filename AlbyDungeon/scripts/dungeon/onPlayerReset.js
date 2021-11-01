@@ -15,18 +15,17 @@
  * @param {LoadedDungeon}   dungeon    SCRIPT BINDING
  */
 function main() {
-    // print("onPlayerReset called");
-
     // RESET POTION EFFECTS THAT AlbyDungeon MAY APPLY
     const PotionEffectType = Java.type("org.bukkit.potion.PotionEffectType");
     sm.clearPotionEffect(player,
-        PotionEffectType.SPEED,
-        PotionEffectType.INCREASE_DAMAGE,
-        PotionEffectType.FIRE_RESISTANCE,
-        PotionEffectType.DAMAGE_RESISTANCE,
-        PotionEffectType.HEALTH_BOOST,
-        PotionEffectType.REGENERATION,
-        PotionEffectType.BLINDNESS,
-        PotionEffectType.SLOW_DIGGING);
+        PotionEffectType.SPEED,                 // SOUL ESSENCE
+        PotionEffectType.INCREASE_DAMAGE,       // SOUL ESSENCE
+        PotionEffectType.FIRE_RESISTANCE,       // SOUL ESSENCE
+        PotionEffectType.DAMAGE_RESISTANCE,     // SOUL ESSENCE
+        PotionEffectType.HEALTH_BOOST,          // SOUL ESSENCE
+        PotionEffectType.REGENERATION,          // SOUL ESSENCE
+        PotionEffectType.BLINDNESS,             // EXTREME DIFFICULTY
+        PotionEffectType.SLOW_DIGGING,          // ELDER GUARDIAN
+        PotionEffectType.POISON);               // ELDER GUARDIAN POISON POOL
 }
 main();
