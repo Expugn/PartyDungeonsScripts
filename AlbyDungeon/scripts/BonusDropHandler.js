@@ -11,7 +11,7 @@
  * @version     0.2
  * @type        NONE
  */
- function main() {
+function main() {
     return (function () {
         const ScheduleHandler = load(`${sm.getScriptDirectory("AlbyDungeon")}/ScheduleHandler.js`);
         const SpecialItemHandler = load(`${sm.getScriptDirectory("AlbyDungeon")}/SpecialItemHandler.js`);
@@ -19,7 +19,7 @@
         const ItemStack = Java.type("org.bukkit.inventory.ItemStack");
         const Location = Java.type("org.bukkit.Location");
         const Material = Java.type("org.bukkit.Material");
-        const HashMap = Java.type("java.util.HashMap")
+        const HashMap = Java.type("java.util.HashMap");
 
         const DROP_AMOUNT = {
             NORMAL: 2,

@@ -1,6 +1,6 @@
 /**
  * AREAWALK type script for AREA (-1528, 43, -550) ~ (-1528, 47, -556)
- * 
+ *
  * Key Three Door Interaction
  *
  * @author      Expugn

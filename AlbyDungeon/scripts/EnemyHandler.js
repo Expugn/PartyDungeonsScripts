@@ -117,7 +117,7 @@ function main() {
          * @param {World} world
          * @returns {Object}
          */
-         function room_two(world) {
+        function room_two(world) {
             const locations = [
                 new Location(world, -1390, 44, -488),
                 new Location(world, -1390, 44, -482),
@@ -171,7 +171,7 @@ function main() {
          * @param {World} world
          * @returns {Object}
          */
-         function room_three(world) {
+        function room_three(world) {
             const zombie_locations = [
                 new Location(world, -1474, 44, -572),
                 new Location(world, -1468, 44, -560),
@@ -258,7 +258,7 @@ function main() {
          * @param {World} world
          * @returns {Object}
          */
-         function room_four(world) {
+        function room_four(world) {
             const locations = [
                 new Location(world, -1552, 44, -521),
                 new Location(world, -1552, 44, -517),
@@ -336,7 +336,7 @@ function main() {
          * @param {World} world
          * @returns {Object}
          */
-         function room_boss(world) {
+        function room_boss(world) {
             const zombie_locations = [
                 new Location(world, -1601, 44, -560),
                 new Location(world, -1604, 44, -544),

@@ -1,6 +1,6 @@
 /**
  * AREAWALK type script for AREA (-1452, 43, -488) ~ (-1446, 47, -488)
- * 
+ *
  * Room One (South) Closed Door Bypass
  *
  * @author      Expugn

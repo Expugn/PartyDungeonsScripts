@@ -1,6 +1,6 @@
 /**
  * AREAWALK type script for AREA (-1404, 43, -524) ~ (-1410, 47, -524)
- * 
+ *
  * Key One Door Interaction
  *
  * @author      Expugn

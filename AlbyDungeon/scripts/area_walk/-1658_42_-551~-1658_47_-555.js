@@ -1,6 +1,6 @@
 /**
  * AREAWALK type script for AREA (-1658, 42, -551) ~ (-1658, 47, -555)
- * 
+ *
  * Albey Dungeon Gateway
  *
  * @author      Expugn
@@ -18,8 +18,11 @@ function main() {}
  * DO NOT REMOVE THIS FUNCTION.
  */
 function _enter() {
-    // AlbeyDungeon isn't playable yet
-	player.sendMessage("unimplemented");
+    const Location = Java.type("org.bukkit.Location");
+    const ScheduleHandler = load(`${sm.getScriptDirectory("AlbyDungeon")}/ScheduleHandler.js`);
+    ScheduleHandler(() => {
+        player.teleport(new Location(player.getWorld(), -1510.5, 172.5, -999.5, -90, 0));
+    });
 }
 
 /**

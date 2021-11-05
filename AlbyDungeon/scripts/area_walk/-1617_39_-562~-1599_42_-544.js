@@ -1,6 +1,6 @@
 /**
  * AREAWALK type script for AREA (-1617, 39, -562) ~ (-1599, 42, -544)
- * 
+ *
  * Corrupted Guardian's Poison Pool
  *
  * @author      Expugn

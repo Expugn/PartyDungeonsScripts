@@ -110,23 +110,33 @@ function give_party_potion_effect(potion_effect_type, amplifier) {
     const ScheduleHandler = load(`${sm.getScriptDirectory("AlbyDungeon")}/ScheduleHandler.js`);
     const PotionEffect = Java.type("org.bukkit.potion.PotionEffect");
     const Integer = Java.type("java.lang.Integer");
+    const enumAlive = sm.enumPlayerState("Alive");
+    const party = dungeon.getParty();
     ScheduleHandler(() => {
-        for (const uuid in dungeon.getParty()) {
-            sm.getPlayerFromUUID(uuid).addPotionEffect(new PotionEffect(potion_effect_type, Integer.MAX_VALUE, amplifier));
+        for (const uuid in party) {
+            const status = party[uuid];
+            if (status === enumAlive) {
+                sm.getPlayerFromUUID(uuid).addPotionEffect(new PotionEffect(potion_effect_type, Integer.MAX_VALUE, amplifier));
+            }
         }
     });
 }
 
 function clear_party_milk_buckets() {
     const Material = Java.type("org.bukkit.Material");
-    for (const uuid in dungeon.getParty()) {
-        const player = sm.getPlayerFromUUID(uuid);
-        const inventory = player.getInventory();
-        for (let i = 0 ; i < inventory.getSize() ; i++) {
-            const item_stack = inventory.getItem(i);
-            if (item_stack.getType().equals(Material.MILK_BUCKET)) {
-                // MILK FOUND, REPLACE WITH EMPTY BUCKET
-                item_stack.setType(Material.BUCKET);
+    const enumAlive = sm.enumPlayerState("Alive");
+    const party = dungeon.getParty();
+    for (const uuid in party) {
+        const status = party[uuid];
+        if (status === enumAlive) {
+            const player = sm.getPlayerFromUUID(uuid);
+            const inventory = player.getInventory();
+            for (let i = 0 ; i < inventory.getSize() ; i++) {
+                const item_stack = inventory.getItem(i);
+                if (item_stack.getType().equals(Material.MILK_BUCKET)) {
+                    // MILK FOUND, REPLACE WITH EMPTY BUCKET
+                    item_stack.setType(Material.BUCKET);
+                }
             }
         }
     }

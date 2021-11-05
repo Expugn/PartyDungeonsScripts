@@ -1,6 +1,6 @@
 /**
  * AREAWALK type script for AREA (-1580, 43, -550) ~ (-1580, 47, -556)
- * 
+ *
  * Boss Key Door and Closed Door Bypass
  *
  * @author      Expugn

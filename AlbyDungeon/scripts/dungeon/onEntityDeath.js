@@ -138,7 +138,7 @@ function main() {
                         enemies.room_boss.easy_boss();
                         break;
                 }
-                dungeon.messageParty(`${ChatColor.GRAY}The ${ChatColor.GOLD}Elder Guardian ${ChatColor.GRAY}has been summoned!`);
+                dungeon.messageParty(`${ChatColor.GRAY}The ${ChatColor.GOLD}Corrupted Guardian ${ChatColor.GRAY}has been summoned!`);
 
                 // FANCY LIGHTNING SOUND EFFECTS
                 entity.getWorld().playSound(new Location(entity.getWorld(), -1608, 43, -553), Sound.ENTITY_LIGHTNING_BOLT_THUNDER, 10, 1);
