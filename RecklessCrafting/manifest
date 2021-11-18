@@ -1,0 +1,20 @@
+RecklessCraftingArena.schem,https://raw.githubusercontent.com/Expugn/PartyDungeonsScripts/main/RecklessCrafting/RecklessCraftingArena.schem,
+
+# ScriptType None
+scripts/ItemHandler.js,https://raw.githubusercontent.com/Expugn/PartyDungeonsScripts/main/RecklessCrafting/scripts/ItemHandler.js,
+scripts/ScheduleHandler.js,https://raw.githubusercontent.com/Expugn/PartyDungeonsScripts/main/RecklessCrafting/scripts/ScheduleHandler.js,
+
+# ScriptType Dungeon
+scripts/dungeon/DungeonStatus.js,https://raw.githubusercontent.com/Expugn/PartyDungeonsScripts/main/RecklessCrafting/scripts/dungeon/DungeonStatus.js,
+scripts/dungeon/onDungeonReset.js,https://raw.githubusercontent.com/Expugn/PartyDungeonsScripts/main/RecklessCrafting/scripts/dungeon/onDungeonReset.js,
+scripts/dungeon/onEntityDeath.js,https://raw.githubusercontent.com/Expugn/PartyDungeonsScripts/main/RecklessCrafting/scripts/dungeon/onEntityDeath.js,
+scripts/dungeon/onPartyMemberJoin.js,https://raw.githubusercontent.com/Expugn/PartyDungeonsScripts/main/RecklessCrafting/scripts/dungeon/onPartyMemberJoin.js,
+scripts/dungeon/onPartyMemberQuit.js,https://raw.githubusercontent.com/Expugn/PartyDungeonsScripts/main/RecklessCrafting/scripts/dungeon/onPartyMemberQuit.js,
+scripts/dungeon/onPlayerDeath.js,https://raw.githubusercontent.com/Expugn/PartyDungeonsScripts/main/RecklessCrafting/scripts/dungeon/onPlayerDeath.js,
+scripts/dungeon/onPlayerRebirth.js,https://raw.githubusercontent.com/Expugn/PartyDungeonsScripts/main/RecklessCrafting/scripts/dungeon/onPlayerRebirth.js,
+scripts/dungeon/onPlayerReset.js,https://raw.githubusercontent.com/Expugn/PartyDungeonsScripts/main/RecklessCrafting/scripts/dungeon/onPlayerReset.js,
+scripts/dungeon/onPlayerRespawn.js,https://raw.githubusercontent.com/Expugn/PartyDungeonsScripts/main/RecklessCrafting/scripts/dungeon/onPlayerRespawn.js,
+
+# ScriptType Interact
+scripts/interact/-2010_90_-466.js,https://raw.githubusercontent.com/Expugn/PartyDungeonsScripts/main/RecklessCrafting/scripts/interact/-2010_90_-466.js,
+scripts/interact/-2010_90_-499.js,https://raw.githubusercontent.com/Expugn/PartyDungeonsScripts/main/RecklessCrafting/scripts/interact/-2010_90_-499.js,
