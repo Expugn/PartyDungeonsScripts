@@ -15,6 +15,6 @@
  * @param {LoadedDungeon}   dungeon    SCRIPT BINDING
  */
 function main() {
-	print("RecklessCrafting: onPlayerRespawn called");
+    print("RecklessCrafting: onPlayerRespawn called");
 }
 // main();

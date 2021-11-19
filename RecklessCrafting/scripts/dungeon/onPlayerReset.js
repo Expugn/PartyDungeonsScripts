@@ -15,7 +15,7 @@
  * @param {LoadedDungeon}   dungeon    SCRIPT BINDING
  */
 function main() {
-	player.getInventory().clear();
-	sm.clearPotionEffect(player);
+    player.getInventory().clear();
+    sm.clearPotionEffect(player);
 }
 main();

@@ -15,6 +15,6 @@
  * @param {LoadedDungeon}   dungeon    SCRIPT BINDING
  */
 function main() {
-	print("RecklessCrafting: onEntityDeath called");
+    print("RecklessCrafting: onEntityDeath called");
 }
 // main();

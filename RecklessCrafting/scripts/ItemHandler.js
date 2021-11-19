@@ -23,6 +23,10 @@ function main() {
             Material.NETHERITE_SWORD,
         ];
         const CATEGORY_ARMOR = [
+            Material.GOLDEN_HELMET,
+            Material.GOLDEN_CHESTPLATE,
+            Material.GOLDEN_LEGGINGS,
+            Material.GOLDEN_BOOTS,
             Material.DIAMOND_HELMET,
             Material.DIAMOND_CHESTPLATE,
             Material.DIAMOND_LEGGINGS,
@@ -60,17 +64,23 @@ function main() {
             Material.COPPER_BLOCK,
         ];
         const CATEGORY_MACHINE = [
-            Material.PISTON,
-            Material.DAYLIGHT_DETECTOR,
-            Material.IRON_TRAPDOOR,
-            Material.DISPENSER,
-            Material.DROPPER,
+            Material.BARREL,
+            Material.LOOM,
+            Material.CARTOGRAPHY_TABLE,
+            Material.COMPOSTER,
+            Material.SMITHING_TABLE,
+            Material.SMOKER,
             Material.TARGET,
             Material.OBSERVER,
+            Material.STONECUTTER,
+            Material.GRINDSTONE,
+            Material.FLETCHING_TABLE,
+            Material.CAMPFIRE,
             Material.LIGHTNING_ROD,
             Material.JUKEBOX,
             Material.ANVIL,
             Material.ENCHANTING_TABLE,
+            Material.LODESTONE,
         ];
         const CATEGORY_CART = [
             Material.MINECART,
@@ -89,6 +99,14 @@ function main() {
             Material.LIGHT_WEIGHTED_PRESSURE_PLATE,
             Material.HEAVY_WEIGHTED_PRESSURE_PLATE,
             Material.NOTE_BLOCK,
+            Material.DISPENSER,
+            Material.DROPPER,
+            Material.PISTON,
+            Material.DAYLIGHT_DETECTOR,
+            Material.IRON_TRAPDOOR,
+            Material.IRON_DOOR,
+            Material.HOPPER,
+            Material.TRAPPED_CHEST,
         ];
         return {
             init: init,

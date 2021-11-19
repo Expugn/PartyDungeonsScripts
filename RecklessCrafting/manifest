@@ -1,3 +1,4 @@
+# Arena Schematic
 RecklessCraftingArena.schem,https://raw.githubusercontent.com/Expugn/PartyDungeonsScripts/main/RecklessCrafting/RecklessCraftingArena.schem,
 
 # ScriptType None
@@ -16,5 +17,7 @@ scripts/dungeon/onPlayerReset.js,https://raw.githubusercontent.com/Expugn/PartyD
 scripts/dungeon/onPlayerRespawn.js,https://raw.githubusercontent.com/Expugn/PartyDungeonsScripts/main/RecklessCrafting/scripts/dungeon/onPlayerRespawn.js,
 
 # ScriptType Interact
+scripts/interact/-2010_90_-433.js,https://raw.githubusercontent.com/Expugn/PartyDungeonsScripts/main/RecklessCrafting/scripts/interact/-2010_90_-433.js,
 scripts/interact/-2010_90_-466.js,https://raw.githubusercontent.com/Expugn/PartyDungeonsScripts/main/RecklessCrafting/scripts/interact/-2010_90_-466.js,
 scripts/interact/-2010_90_-499.js,https://raw.githubusercontent.com/Expugn/PartyDungeonsScripts/main/RecklessCrafting/scripts/interact/-2010_90_-499.js,
+scripts/interact/-2010_90_-532.js,https://raw.githubusercontent.com/Expugn/PartyDungeonsScripts/main/RecklessCrafting/scripts/interact/-2010_90_-532.js,

@@ -20,43 +20,98 @@ function main() {
 
     // PLAYER INVENTORY MUST BE EMPTY (INVENTORY WILL BE CLEARED ON TELEPORT)
     if (!player.getInventory().isEmpty()) {
-	    dungeon.leave(player);
-	    player.sendMessage(`${ChatColor.RED}Sorry! Your inventory needs to be ${ChatColor.YELLOW}empty ${ChatColor.RED}to play.`);
-	    return;
+        dungeon.leave(player);
+        player.sendMessage(`${ChatColor.RED}Sorry! Your inventory needs to be ${ChatColor.YELLOW}empty ${ChatColor.RED}to play.`);
+        return;
     }
+    const slots = `${ChatColor.YELLOW}(${dungeon.getParty().size()}/${dungeon.getDungeon().getDungeonFile().getMaxParty()})`;
 
     // THERE MUST BE AT LEAST 2 PARTY MEMBERS
     if (dungeon.getParty().size() <= 1) {
-	    // NOT ENOUGH PLAYERS
-	    dungeon.messageArea(`${prefix}${ChatColor.LIGHT_PURPLE}${player.getName()} ${ChatColor.DARK_AQUA}is ready to craft!\n`
-		    + `${prefix_short}${ChatColor.GREEN}Use ${ChatColor.GOLD}/partydungeons join ${ChatColor.GREEN}to join and start the game!`);
-	    return;
+        // NOT ENOUGH PLAYERS
+        dungeon.messageArea(`${prefix}${ChatColor.LIGHT_PURPLE}${player.getName()} ${ChatColor.DARK_AQUA}is ready to craft! ${slots}\n`
+            + `${prefix_short}${ChatColor.GREEN}Use ${ChatColor.GOLD}/partydungeons join ${ChatColor.GREEN}to join and start the game!`);
+        return;
     }
 
-    // ENOUGH PLAYERS
+    if (dungeon.getParty().size() >= 3) {
+        // PLAYER THREE OR FOUR JOINED
+        dungeon.messageArea(`${prefix}${ChatColor.LIGHT_PURPLE}${player.getName()} ${ChatColor.DARK_AQUA}is ready to craft! ${slots}\n`);
+        return;
+    }
+
+    // ENOUGH PLAYERS, KEEP LOOKING FOR A PLAYER THREE AND FOUR
+    if (dungeon.getParty().size() >= 2) {
+        dungeon.messageArea(`${prefix}${ChatColor.LIGHT_PURPLE}${player.getName()} ${ChatColor.DARK_AQUA}is ready to craft! ${slots}\n`
+            + `${prefix_short}${ChatColor.GREEN}A battle is beginning soon! Use ${ChatColor.GOLD}/partydungeons join ${ChatColor.GREEN}to join!`);
+        for (let i = 0; i < 60; i++) {
+            if (i % 10 === 0) {
+                dungeon.messageArea(`${prefix}${ChatColor.GOLD}${60 - i} ${ChatColor.DARK_AQUA}seconds until the battle begins!`);
+            }
+            java.lang.Thread.sleep(1000);
+            if (dungeon.getParty().size() >= 4) {
+                // FOUR PLAYERS READY
+                break;
+            }
+            if (dungeon.getParty().size() <= 1) {
+                // NOT ENOUGH PLAYERS
+                dungeon.messageArea(`${prefix}${ChatColor.RED}Not enough players. The pending battle has been cancelled.`);
+                return;
+            }
+        }
+    }
+
+    // STILL MORE THAN 2 PLAYERS
     const Location = Java.type("org.bukkit.Location");
     const world = dungeon.getDungeon().getDungeonFile().getWorld();
     const players = dungeon.getParty().keySet().toArray();
     const player_1 = sm.getPlayerFromUUID(players[0]);
     const player_2 = sm.getPlayerFromUUID(players[1]);
-    dungeon.messageArea(`${prefix}${ChatColor.DARK_AQUA}The battle between between ${ChatColor.LIGHT_PURPLE}${player_1.getName()} ${ChatColor.DARK_AQUA}and ${ChatColor.LIGHT_PURPLE}${player_2.getName()} ${ChatColor.DARK_AQUA}is now starting!`);
+    const player_3 = players.length >= 3 ? sm.getPlayerFromUUID(players[2]) : null;
+    const player_4 = players.length >= 4 ? sm.getPlayerFromUUID(players[3]) : null;
+    if (players.length >= 4) {
+        dungeon.messageArea(`${prefix}${ChatColor.DARK_AQUA}The battle between between ${ChatColor.LIGHT_PURPLE}${player_1.getName()}${ChatColor.DARK_AQUA}, ${ChatColor.LIGHT_PURPLE}${player_2.getName()}${ChatColor.DARK_AQUA}, ${ChatColor.LIGHT_PURPLE}${player_3.getName()}${ChatColor.DARK_AQUA}, and ${ChatColor.LIGHT_PURPLE}${player_4.getName()} ${ChatColor.DARK_AQUA}is now starting!`);
+    }
+    else if (players.length >= 3) {
+        dungeon.messageArea(`${prefix}${ChatColor.DARK_AQUA}The battle between between ${ChatColor.LIGHT_PURPLE}${player_1.getName()}${ChatColor.DARK_AQUA}, ${ChatColor.LIGHT_PURPLE}${player_2.getName()}${ChatColor.DARK_AQUA}, and ${ChatColor.LIGHT_PURPLE}${player_3.getName()} ${ChatColor.DARK_AQUA}is now starting!`);
+    }
+    else {
+        dungeon.messageArea(`${prefix}${ChatColor.DARK_AQUA}The battle between between ${ChatColor.LIGHT_PURPLE}${player_1.getName()} ${ChatColor.DARK_AQUA}and ${ChatColor.LIGHT_PURPLE}${player_2.getName()} ${ChatColor.DARK_AQUA}is now starting!`);
+    }
+
     dungeon.start(false);
     load(`${sm.getScriptDirectory("RecklessCrafting")}/ScheduleHandler.js`)(() => {
-	    player_1.teleport(new Location(world, -2011.5, 90.25, -500.5, -90, 0));
-	    player_2.teleport(new Location(world, -2011.5, 90.25, -467.5, -90, 0));
+        const PotionEffect = Java.type("org.bukkit.potion.PotionEffect");
+        const PotionEffectType = Java.type("org.bukkit.potion.PotionEffectType");
+        const Integer = Java.type("java.lang.Integer");
 
-	    // CLEAR INVENTORY
-	    player_1.getInventory().clear();
-	    player_2.getInventory().clear();
+        player_1.teleport(new Location(world, -2011.5, 90.25, -500.5, -90, 0));
+        player_1.getInventory().clear();
+        player_1.addPotionEffect(new PotionEffect(PotionEffectType.SPEED, Integer.MAX_VALUE, 1));
+        player_1.addPotionEffect(new PotionEffect(PotionEffectType.FAST_DIGGING, Integer.MAX_VALUE, 1));
+        player_1.addPotionEffect(new PotionEffect(PotionEffectType.NIGHT_VISION, Integer.MAX_VALUE, 0));
 
-		// POTION EFFECTS
-		const PotionEffect = Java.type("org.bukkit.potion.PotionEffect");
-		const PotionEffectType = Java.type("org.bukkit.potion.PotionEffectType");
-    	const Integer = Java.type("java.lang.Integer");
-		player_1.addPotionEffect(new PotionEffect(PotionEffectType.SPEED, Integer.MAX_VALUE, 1));
-		player_2.addPotionEffect(new PotionEffect(PotionEffectType.SPEED, Integer.MAX_VALUE, 1));
-		player_1.addPotionEffect(new PotionEffect(PotionEffectType.FAST_DIGGING, Integer.MAX_VALUE, 1));
-		player_2.addPotionEffect(new PotionEffect(PotionEffectType.FAST_DIGGING, Integer.MAX_VALUE, 1));
+        player_2.teleport(new Location(world, -2011.5, 90.25, -467.5, -90, 0));
+        player_2.getInventory().clear();
+        player_2.addPotionEffect(new PotionEffect(PotionEffectType.SPEED, Integer.MAX_VALUE, 1));
+        player_2.addPotionEffect(new PotionEffect(PotionEffectType.FAST_DIGGING, Integer.MAX_VALUE, 1));
+        player_2.addPotionEffect(new PotionEffect(PotionEffectType.NIGHT_VISION, Integer.MAX_VALUE, 0));
+
+        if (player_3 !== null) {
+            player_3.teleport(new Location(world, -2011.5, 90.25, -533.5, -90, 0));
+            player_3.getInventory().clear();
+            player_3.addPotionEffect(new PotionEffect(PotionEffectType.SPEED, Integer.MAX_VALUE, 1));
+            player_3.addPotionEffect(new PotionEffect(PotionEffectType.FAST_DIGGING, Integer.MAX_VALUE, 1));
+            player_3.addPotionEffect(new PotionEffect(PotionEffectType.NIGHT_VISION, Integer.MAX_VALUE, 0));
+        }
+
+        if (player_4 !== null) {
+            player_4.teleport(new Location(world, -2011.5, 90.25, -434.5, -90, 0));
+            player_4.getInventory().clear();
+            player_4.addPotionEffect(new PotionEffect(PotionEffectType.SPEED, Integer.MAX_VALUE, 1));
+            player_4.addPotionEffect(new PotionEffect(PotionEffectType.FAST_DIGGING, Integer.MAX_VALUE, 1));
+            player_4.addPotionEffect(new PotionEffect(PotionEffectType.NIGHT_VISION, Integer.MAX_VALUE, 0));
+        }
     });
 
     // COUNTDOWN
@@ -86,7 +141,7 @@ function main() {
     const ItemHandler = load(`${sm.getScriptDirectory("RecklessCrafting")}/ItemHandler.js`);
     dungeon.setTempVariable("items", ItemHandler.init());
     dungeon.messageArea(`${prefix_short}${ChatColor.GREEN}Go! ${ChatColor.YELLOW}This match's items:\n`
-	    + `${ItemHandler.toString(dungeon.getTempVariable("items"))}`);
+        + `${ItemHandler.toString(dungeon.getTempVariable("items"))}`);
 
     // REMOVE PLAYER GATES
     const Objects = Java.type("java.util.Objects");
@@ -102,6 +157,15 @@ function main() {
     const cr_2 = new CuboidRegion(BlockVector3["at(int, int, int)"](-2011, 90, -469), BlockVector3["at(int, int, int)"](-2013, 93, -467));
     edit.makeWalls(cr_1, air);
     edit.makeWalls(cr_2, air);
+    if (player_3 !== null) {
+        const cr_3 = new CuboidRegion(BlockVector3["at(int, int, int)"](-2011, 90, -535), BlockVector3["at(int, int, int)"](-2013, 93, -533));
+        edit.makeWalls(cr_3, air);
+    }
+    if (player_4 !== null) {
+        const cr_4 = new CuboidRegion(BlockVector3["at(int, int, int)"](-2011, 90, -436), BlockVector3["at(int, int, int)"](-2013, 93, -434));
+        edit.makeWalls(cr_4, air);
+    }
+
     edit.flushQueue();
     edit.close();
 }
