@@ -310,7 +310,7 @@ function main() {
          */
         function ChestGate(world, pos) {
             const MATERIAL_OPEN =     Material.AIR;
-            const MATERIAL_CLOSE =    Material.IRON_BARS;
+            const MATERIAL_CLOSE =    Material.RED_STAINED_GLASS;
 
             return {
                 "run_west": run_east_west,
