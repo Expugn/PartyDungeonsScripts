@@ -161,9 +161,9 @@ function main() {
                         if (status === enumAlive) {
                             let exists = false;
                             for (const entry of hall_of_fame) {
-                                if (entry[0] === uuid) {
+                                if (entry["0"] === uuid) {
                                     // PLAYER ALREADY IN HALL OF FAME, UPDATE NAME
-                                    entry[1] = sm.getPlayerFromUUID(uuid).getName();
+                                    entry["1"] = sm.getPlayerFromUUID(uuid).getName();
                                     exists = true;
                                     break;
                                 }
