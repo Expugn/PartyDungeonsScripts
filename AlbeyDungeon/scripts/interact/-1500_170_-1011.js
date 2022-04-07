@@ -22,7 +22,7 @@ function main() {
     }
     player.sendMessage(`${ChatColor.GRAY}The following is a list of players who have completed the\ndungeon in ${ChatColor.RED}IMPOSSIBLE ${ChatColor.GRAY}difficulty. Congratulations!`);
     for (const obj of hall_of_fame) {
-        player.sendMessage(`${ChatColor.DARK_GRAY}- ${ChatColor.GOLD}${obj[1]} ${ChatColor.GRAY}(${new Date(obj[2]).toString()})`);
+        player.sendMessage(`${ChatColor.DARK_GRAY}- ${ChatColor.GOLD}${obj["1"]} ${ChatColor.GRAY}(${new Date(obj["2"]).toString()})`);
     }
 }
 main();
